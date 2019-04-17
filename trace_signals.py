@@ -196,8 +196,8 @@ def trace_signals(signal, *, output=print, suppress=()):
 
             def unpatch():
                 signal._live_receivers = orignal_bound_live_receivers
-                signal.send = original_send
-                signal.send_robust = original_send_robust
+                signal.send = original_bound_send
+                signal.send_robust = original_bound_send_robust
 
         else:
             signal_cls._live_receivers = _live_receivers_wrapper
